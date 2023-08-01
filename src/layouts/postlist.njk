@@ -4,10 +4,11 @@ pagination:
   data: collections.post
   size: 10
   alias: posts
+  reverse: true
 ---
 {{ content | safe}}
 
-{% for post in posts | reverse %}
+{% for post in posts %}
    <post class="">
     <a href="/posts/{{post.fileSlug}}">{{post.data.title}}</a>
 
