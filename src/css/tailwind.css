@@ -22,3 +22,7 @@ a {
   @apply hover:shadow-black;
   @apply shadow-transparent;
 }
+
+nav a {
+  @apply hover:text-white;
+}
