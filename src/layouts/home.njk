@@ -9,7 +9,7 @@ pagination:
 
 <div id="homepostlist" class="">
   <h2>Blog</h2>
-  {% for post in posts %}
+  {% for post in posts | reverse %}
    <post class="">
     <a href="/posts/{{post.fileSlug}}">{{post.data.title}}</a>
 
