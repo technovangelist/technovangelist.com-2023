@@ -1,0 +1,24 @@
+/* @import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities"; */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+p {
+  margin-top: 1rem;
+}
+
+#homepostlist {
+  margin-top: 1rem;
+}
+
+a {
+  @apply text-blue-400;
+  @apply font-normal;
+  @apply hover:text-red-800;
+  /* @apply hover:font-normal; */
+  @apply hover:shadow-black;
+  @apply shadow-transparent;
+}

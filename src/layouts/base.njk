@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {# <link rel="stylesheet" href="/css/.css"> #}
+    <style>
+      {% set css %}
+      {% include "../css/tailwind.css" %}
+      {% endset %}
+      {{ css | postcss | safe }}
+      </style>
+    <title>technovangelist - {{ title }}</title>
+  </head>
+  
+    {% set currentURL = page.url %}
+
+    <nav class="bg-gray-800 text-white py-3 px-4 flex items-center justify-between">
+    <a class="font-bold text-xl tracking-tight" href="#">My Site</a>
+    <div class="flex items-center">
+        <a class="text-sm px-4 py-2 leading-none rounded-full hover:bg-gray-700" href="#">Home</a>
+        <a class="text-sm px-4 py-2 leading-none rounded-full hover:bg-gray-700" href="#">About</a>
+        <a class="text-sm px-4 py-2 leading-none rounded-full hover:bg-gray-700" href="#">Contact</a>
+    </div>
+</nav>
+
+    <nav class="mx-auto max-w-2xl">
+      <div class="flex h-16 items-start justify-between">
+      <ul class="flex space-x-8">
+        <li>
+          <a class="text-base {% if currentURL === '/' %}font-bold{% endif %}" href="/" >Technovangelist</a>
+        </li>
+        <li>
+          <a class="text-base {% if currentURL === '/blog/' %}font-bold{% endif %}" href="/blog">Blog</a>
+        </li>
+      </ul>
+
+      </div>
+    </nav>
+    <nav class="flex flex-col max-w-2xl mx-auto text-gray-900">
+      <header>
+        
+        <ul class="flex flex-row font-light">
+          <li class="mr-6">
+            <a href="/" >Technovangelist</a>
+          </li>
+          <li class="mr-6">
+            <a href="/blog">Blog</a></li>
+          <li class="mr-6">
+            <a href="/notes"> Notes</a>
+          </li>
+          <li class="mr-6">
+            <a href="/talks">Talks</a>
+          </li>
+          
+        </ul>
+      </header>
+      <main class="">
+        {{ content | safe }}
+
+        
+      </main>
+    </nav>
+
+
+</html>

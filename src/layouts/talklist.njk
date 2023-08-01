@@ -1,0 +1,31 @@
+---
+layout: base.njk
+pagination:
+  data: collections.talk
+  size: 10
+  alias: talks
+---
+{{ content | safe}}
+
+{% for talk in talks %}
+   <talk class="">
+    <a href="/talks/{{talk.fileSlug}}">{{talk.data.title}}</a> - {{talk.data.event_name}} - {{talk.data.talk_date}}
+
+  {{talk.data.summary | safe}}
+  <br>
+  </talk>
+  {% endfor %}
+
+  {% if pagination.href.previous %}
+    <a href="{{ pagination.href.previous }}">Previous</a>
+  {% else %}
+    Previous
+  {% endif %}
+{% for pageEntry in pagination.pages %}
+  <a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>Page {{ loop.index }}</a>
+{% endfor %}
+{% if pagination.href.next %}
+  <a href="{{ pagination.href.next }}">Next</a>
+{% else %}
+  Next
+{% endif %}

@@ -1,0 +1,21 @@
+---
+layout: base.njk
+pagination:
+  data: collections.post
+  size: 3
+  alias: posts
+---
+{{ content | safe }}
+
+<div id="homepostlist" class="">
+  <h2>Blog</h2>
+  {% for post in posts %}
+   <post class="">
+    <a href="/posts/{{post.fileSlug}}">{{post.data.title}}</a>
+
+  {{post.data.summary | safe}}
+  <br>
+  </post>
+  {% endfor %}
+
+</div>
